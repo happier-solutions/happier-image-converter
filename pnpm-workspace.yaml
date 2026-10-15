@@ -1,3 +1,5 @@
+allowBuilds:
+  workerd: true
 minimumReleaseAgeExclude:
   - '@tanstack/react-start-rsc@0.1.63'
   - '@tanstack/react-start-server@1.167.50'
