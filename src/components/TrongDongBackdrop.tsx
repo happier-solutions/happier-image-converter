@@ -51,9 +51,10 @@ export function TrongDongBackdrop() {
     const items = []
     for (let i = 0; i < count; i++) {
       const angle = (i * 2 * Math.PI) / count
-      const x = cx + radius * Math.cos(angle)
-      const y = cy + radius * Math.sin(angle)
-      items.push({ x, y, dotR })
+      const x = Number((cx + radius * Math.cos(angle)).toFixed(2))
+      const y = Number((cy + radius * Math.sin(angle)).toFixed(2))
+      const innerR = Number((dotR * 0.45).toFixed(2))
+      items.push({ x, y, dotR, innerR })
     }
     return items
   }
@@ -186,7 +187,7 @@ export function TrongDongBackdrop() {
           {circleRingInner.map((c, idx) => (
             <g key={idx}>
               <circle cx={c.x} cy={c.y} r={c.dotR} strokeWidth="1.3" />
-              <circle cx={c.x} cy={c.y} r={c.dotR * 0.45} strokeWidth="1" />
+              <circle cx={c.x} cy={c.y} r={c.innerR} strokeWidth="1" />
               <circle cx={c.x} cy={c.y} r={1.8} fill="currentColor" />
             </g>
           ))}
@@ -251,7 +252,7 @@ export function TrongDongBackdrop() {
           {circleRingOuter.map((c, idx) => (
             <g key={idx}>
               <circle cx={c.x} cy={c.y} r={c.dotR} strokeWidth="1.3" />
-              <circle cx={c.x} cy={c.y} r={c.dotR * 0.45} strokeWidth="1" />
+              <circle cx={c.x} cy={c.y} r={c.innerR} strokeWidth="1" />
               <circle cx={c.x} cy={c.y} r={1.8} fill="currentColor" />
             </g>
           ))}

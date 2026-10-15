@@ -34,7 +34,6 @@ import type {
 } from '../types/image'
 
 export const Route = createFileRoute('/')({
-  ssr: false,
   component: CraftImageStudioPage,
 })
 

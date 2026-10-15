@@ -12,8 +12,8 @@ export function LanguageSuggestionBanner() {
   if (!showEnglishPrompt) return null
 
   return (
-    <div className="px-4 pt-2.5">
-      <div className="max-w-3xl mx-auto craft-panel rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 border border-stone-200/90 shadow-sm">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-2xl pointer-events-none">
+      <div className="pointer-events-auto craft-panel craft-dropdown-pop rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 border border-stone-200/90 shadow-lg">
         <div className="flex items-center gap-2.5 text-xs text-stone-700">
           <span className="w-6 h-6 rounded-full bg-stone-100 border border-stone-200/80 flex items-center justify-center text-sm shrink-0">
             🇺🇸
@@ -95,7 +95,7 @@ export function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="craft-panel absolute right-0 mt-2 w-40 rounded-2xl p-1.5 z-50 shadow-lg border border-stone-200/90">
+        <div className="craft-panel craft-dropdown-pop absolute right-0 mt-2 w-40 rounded-2xl p-1.5 z-50 shadow-lg border border-stone-200/90">
           {locales.map((item) => {
             const active = item.code === locale
             return (

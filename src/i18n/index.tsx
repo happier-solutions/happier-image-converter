@@ -87,12 +87,15 @@ const I18nContext = createContext<I18nContextValue>({
 })
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => getInitialLocale())
+  const [locale, setLocaleState] = useState<Locale>('vi')
   const [showEnglishPrompt, setShowEnglishPrompt] = useState(false)
 
   useEffect(() => {
     try {
       const savedLocale = window.localStorage.getItem(STORAGE_KEY)
+      if (savedLocale === 'vi' || savedLocale === 'en') {
+        setLocaleState(savedLocale)
+      }
       const dismissed = window.localStorage.getItem(BANNER_DISMISSED_KEY)
       if (!savedLocale && !dismissed && isBrowserEnglish()) {
         setShowEnglishPrompt(true)
